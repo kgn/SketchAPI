@@ -9,6 +9,12 @@
   Represents a rectangle.
  */
 
+function _Rectangle(x, y, width, height) {
+  return new Rectangle(x, y, width, height);
+}
+
+__globals.Rectangle = _Rectangle;
+
 export class Rectangle {
 
   /**
