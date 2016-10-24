@@ -29,13 +29,25 @@ export class Selection extends WrappedObject {
     /**
       Return the native Sketch layers in the selection.
 
-      @return {array} The selected layers.
+      @return {array} The selected native Sketch layers.
       */
 
-    get nativeLayers() {
-      var layers = this._object.selectedLayers().layers();
-      return layers
+    get _nativeLayers() {
+      return this._object.selectedLayers().layers();
     }
+
+    /**
+      Return the layers in the selection.
+
+      @return {array} The selected layers.
+      */
+    get layers() {
+        var layers = [];
+        selection.iterate(function(layer) {
+            layers.push(layer);
+        });  
+        return layers;
+    }    
 
 
     /**
@@ -45,7 +57,7 @@ export class Selection extends WrappedObject {
       */
 
     get length() {
-      return this.nativeLayers.count()
+      return this._nativeLayers.count()
     }
 
     
@@ -56,7 +68,7 @@ export class Selection extends WrappedObject {
     */
 
     get isEmpty() {
-        return (this.nativeLayers.count() == 0);
+        return (this._nativeLayers.count() == 0);
     }
 
 
@@ -92,7 +104,7 @@ export class Selection extends WrappedObject {
     */
 
     iterateThenClear(block) {
-      var layers = this.nativeLayers
+      var layers = this._nativeLayers
       this.clear();
       this._page._document.iterateWithNativeLayers(layers, null, block);
     }
@@ -105,7 +117,7 @@ export class Selection extends WrappedObject {
     */
 
     iterateWithFilterThenClear(filter, block) {
-      var layers = this.nativeLayers
+      var layers = this._nativeLayers
       this.clear();
       this._page._document.iterateWithNativeLayers(layers, filter, block);
     }
@@ -117,7 +129,7 @@ export class Selection extends WrappedObject {
     */
 
     iterate(block) {
-      this._page._document.iterateWithNativeLayers(this.nativeLayers, null, block);
+      this._page._document.iterateWithNativeLayers(this._nativeLayers, null, block);
     }
 
     /**
@@ -128,7 +140,7 @@ export class Selection extends WrappedObject {
     */
 
     iterateWithFilter(filter, block) {
-      this._page._document.iterateWithNativeLayers(this.nativeLayers, filter, block);
+      this._page._document.iterateWithNativeLayers(this._nativeLayers, filter, block);
     }
 
 
