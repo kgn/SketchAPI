@@ -80,7 +80,7 @@ export class Selection extends WrappedObject {
 
     get first() {
       if (!this.isEmpty) {
-        return this._page._document.wrapObject(this.nativeLayers[0])
+        return this._page._document.wrapObject(this._nativeLayers[0]);
       }
     } 
     
@@ -92,7 +92,8 @@ export class Selection extends WrappedObject {
 
     get last() {
       if (!this.isEmpty) {
-       return this._page._document.wrapObject(this.nativeLayers[this.length-1])
+        var nativeLayers = this._nativeLayers;
+        return this._page._document.wrapObject(nativeLayers[nativeLayers.length-1]);
       }
     }     
 
