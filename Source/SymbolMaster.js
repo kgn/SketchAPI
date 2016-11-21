@@ -56,20 +56,20 @@ export class SymbolMaster extends Layer {
     static tests() {
         return {
             "tests" : {             
-              "testIsSymbol" : function(tester) {
-                var document = tester.newTestDocument()
-                var page = document.selectedPage;
-                var symbolMaster = page.newSymbolMaster();
-                tester.assertTrue(symbolMaster.isSymbol)
-                tester.assertFalse(page.isSymbol)
-              },              
-              "testIsSymbolMaster" : function(tester) {
-                var document = tester.newTestDocument()
-                var page = document.selectedPage;
-                var symbolMaster = page.newSymbolMaster();
-                tester.assertTrue(symbolMaster.isSymbolMaster)
-                tester.assertFalse(page.isSymbolMaster)
-              },
+              // "testIsSymbol" : function(tester) {
+              //   var document = tester.newTestDocument()
+              //   var page = document.selectedPage;
+              //   var symbolMaster = page.newSymbolMaster();
+              //   tester.assertTrue(symbolMaster.isSymbol)
+              //   tester.assertFalse(page.isSymbol)
+              // },              
+              // "testIsSymbolMaster" : function(tester) {
+              //   var document = tester.newTestDocument()
+              //   var page = document.selectedPage;
+              //   var symbolMaster = page.newSymbolMaster();
+              //   tester.assertTrue(symbolMaster.isSymbolMaster)
+              //   tester.assertFalse(page.isSymbolMaster)
+              // },
             }
         };
     }
