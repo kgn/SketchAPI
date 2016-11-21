@@ -19,6 +19,8 @@ import { Layer } from './Layer.js'
 import { Selection } from './Selection.js'
 import { Style } from './Style.js'
 import { Slice } from './Slice.js'
+import { SymbolInstance } from './SymbolInstance.js'
+import { SymbolMaster } from './SymbolMaster.js'
 
 /**
  Gives you access to Sketch, and provides access to:
@@ -59,7 +61,8 @@ export class Application extends WrappedObject {
         this.Artboard = Artboard
         this.Page = Page
         this.Selection = Selection
-        this.Style = Style
+        this.SymbolInstance = SymbolInstance
+        this.SymbolMaster = SymbolMaster
     }
 
     /**
@@ -302,7 +305,9 @@ export class Application extends WrappedObject {
         MSShapeGroup : Shape,
         MSBitmapLayer : Image,
         MSTextLayer : Text,
-        MSSliceLayer: Slice
+        MSSliceLayer: Slice,
+        MSSymbolInstance: SymbolInstance,
+        MSSymbolMaster: SymbolMaster
       }
       return mappings
     }
@@ -402,7 +407,9 @@ export class Application extends WrappedObject {
                 "Text" : Text.tests(),
                 "WrappedObject" : WrappedObject.tests(),
                 "Style" : Style.tests(),
-                "Slice" : Slice.tests()
+                "Slice" : Slice.tests(),
+                "SymbolInstance" : SymbolInstance.tests(),
+                "SymbolMaster" : SymbolMaster.tests()
             }
         }
 
