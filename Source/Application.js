@@ -61,6 +61,7 @@ export class Application extends WrappedObject {
         this.Artboard = Artboard
         this.Page = Page
         this.Selection = Selection
+        this.Slice = Slice
         this.SymbolInstance = SymbolInstance
         this.SymbolMaster = SymbolMaster
     }
