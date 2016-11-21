@@ -253,6 +253,16 @@ export class Layer extends WrappedObject {
   }
 
   /**
+  Return the parent artboard of this layer.
+
+  @return {Artboard} The parent artboard of this layer.
+  */
+
+  get parentArtboard() {
+    return this._document.wrapObject(this._object.parentArtboard())
+  }
+
+  /**
   Return the index of this layer in it's container.
   The layer at the back of the container (visualy) will be layer 0. The layer at the front will be layer n - 1 (if there are n layers).
 
